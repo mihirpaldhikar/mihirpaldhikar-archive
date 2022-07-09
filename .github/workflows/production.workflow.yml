@@ -1,0 +1,45 @@
+name: Build And Push The Production Portfolio Website To Google Cloud Run
+on:
+  push:
+    branches:
+      - production/portfolio
+
+jobs:
+  build-push-gcr:
+    name: Build and Push to GCP AR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env:
+      REPOSITORY_NAME: ${{ secrets.PRODUCTION_WEBSITE_REPOSITORY }}
+      IMAGE_NAME: ${{ secrets.PRODUCTION_WEBSITE_IMAGE_NAME }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Write Server Configuration Files'
+        uses: "finnp/create-file-action@master"
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT  }}'
+      - name: Build Docker Image
+        run: |
+          docker build -t $IMAGE_NAME:latest .
+      - name: Configure Docker Client
+        run: |
+          gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
+      - name: Push Docker Image To GCP AR
+        env:
+          GIT_TAG: v0.1.0
+        run: |
+          docker tag $IMAGE_NAME:latest asia-south1-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:latest
+          docker push asia-south1-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:latest
+      - id: 'deploy'
+        name: Deploy Image To Cloud Run
+        uses: 'google-github-actions/deploy-cloudrun@v0'
+        with:
+          region: '${{ secrets.PRODUCTION_WEBSITE_SERVER_REGION }}'
+          service: '${{ secrets.PRODUCTION_WEBSITE_SERVICE_NAME }}'
+          image: 'asia-south1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.PRODUCTION_WEBSITE_REPOSITORY }}/${{ secrets.PRODUCTION_WEBSITE_IMAGE_NAME }}'
