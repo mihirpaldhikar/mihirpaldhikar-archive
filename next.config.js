@@ -1,7 +1,6 @@
-/** @type {{reactStrictMode: boolean, swcMinify: boolean, outputStandalone: boolean}} */
+/** @type {{output: string, reactStrictMode: boolean, swcMinify: boolean}} */
 const nextConfig = {
-    reactStrictMode: true, swcMinify: true, outputStandalone: true
-
+    reactStrictMode: true, swcMinify: true, output: 'standalone'
 }
 
 module.exports = nextConfig
