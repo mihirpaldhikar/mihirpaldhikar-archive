@@ -10,8 +10,14 @@ import {FaTwitter} from "@react-icons/all-files/fa/FaTwitter";
 import Link from "next/link";
 import MetaTag from "../services/MetaTags";
 import MetaTags from "../services/MetaTags";
+import useDownloader from "react-use-downloader";
+import {Router} from "next/router";
 
 const Home: NextPage = () => {
+
+    function downloadResume() {
+        window.open('https://firebasestorage.googleapis.com/v0/b/mihirpaldhikar.appspot.com/o/Documents%2FMihir%20Paldhikar%20Resume.pdf?alt=media&token=d1a2afee-fedb-400b-a352-d4aac6aee5ec', '_newtab');
+    }
 
     return (<Fragment>
 
@@ -29,7 +35,8 @@ const Home: NextPage = () => {
                         className={"text-purple-600"}>.</span></h1>
                     <p>Designer, Full Stack, Android, Flutter & Web Developer</p>
                     <div className={"mt-10 text-center lg:text-left"}>
-                        <Button text={"Download Resume"}/>
+                        <Button text={"Download Resume"}
+                                onClick={downloadResume}/>
                     </div>
                     <div
                         className={"flex flex-row space-x-6 mt-10 justify-center lg:justify-start"}>
