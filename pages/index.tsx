@@ -8,19 +8,17 @@ import {FaGithub} from "@react-icons/all-files/fa/FaGithub";
 import {FaLinkedin} from "@react-icons/all-files/fa/FaLinkedin";
 import {FaTwitter} from "@react-icons/all-files/fa/FaTwitter";
 import Link from "next/link";
+import MetaTag from "../services/MetaTags";
+import MetaTags from "../services/MetaTags";
 
 const Home: NextPage = () => {
 
-    function pr() {
-        console.log("Clicked ME!")
-    }
-
     return (<Fragment>
-        <Head>
-            <title>Mihir Paldhikar</title>
-            <meta name="description" content="Developer Portfolio Of Mihir Paldhikar."/>
-            <link rel="icon" href="/favicon.ico"/>
-        </Head>
+
+        <MetaTags title={"Mihir Paldhikar"}
+                  description={"Hello there!, I am Mihir Paldhikar, Designer, Full Stack," + " Android, Flutter & Web Developer."}
+                  icon={"/favicon.ico"}/>
+
         <div className={'flex flex-col p-5 w-full justify-center items-center'}>
             <div
                 className={"flex flex-col lg:flex-row justify-start lg:space-x-80 min-h-full" + " lg:mt-16"}>

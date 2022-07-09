@@ -1,7 +1,4 @@
 {
-  "functions": {
-    "source": "functions"
-  },
   "hosting": {
     "appAssociation": "AUTO",
     "public": "public",
@@ -15,7 +12,7 @@
         "source": "**",
         "run": {
           "serviceId": "mihirpaldhikar-portfolio",
-          "region": "asia-south1 "
+          "region": "asia-south1"
         }
       },
       {
