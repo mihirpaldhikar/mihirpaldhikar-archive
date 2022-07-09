@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     return (<Fragment>
         <Head>
             <title>Mihir Paldhikar</title>
-            <meta name="description" content="Portfolio Of Mihir Paldhikar."/>
+            <meta name="description" content="Developer Portfolio Of Mihir Paldhikar."/>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
         <div className={'flex flex-col p-5 w-full justify-center items-center'}>
