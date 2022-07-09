@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: 'Write Server Configuration Files'
-        uses: "finnp/create-file-action@master"
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
         with:
