@@ -11,13 +11,20 @@ import MetaTags from "../services/MetaTags";
 import Typewriter from 'typewriter-effect';
 import {FaArrowUp} from "@react-icons/all-files/fa/FaArrowUp";
 import {FaArrowDown} from "@react-icons/all-files/fa/FaArrowDown";
+import ProjectCard from "../components/ProjectCard";
+import Skill from "../widgets/Skill";
 
 const Home: NextPage = () => {
 
     const [showJourney, setShowJourney] = useState<boolean>(false)
+    const [showProjects, setShowProjects] = useState<boolean>(true)
 
     function toggleJourneyView() {
         setShowJourney(!showJourney)
+    }
+
+    function toggleProjectView() {
+        setShowProjects(!showProjects)
     }
 
     function downloadResume() {
@@ -56,6 +63,19 @@ const Home: NextPage = () => {
         </Fragment>)
     }
 
+    function ProjectView() {
+        return (<div
+            className={"grid grid-cols-1 lg:grid-cols-2 lg:space-x-5 space-y-5" + " lg:space-y-0"}>
+            <ProjectCard title={"Social Ship"}
+                         description={"A Networking platform for colleagues, students and professionals."}
+                         link={""} time={"2022 - Present"}/>
+            <ProjectCard title={"Bookology"}
+                         description={"A platform for sharing used books for the peoples who are in need."}
+                         link={"https://play.google.com/store/apps/details?id=com.imihirpaldhikar.bookology"}
+                         time={"2021 - Present"}/>
+        </div>)
+    }
+
     return (<Fragment>
 
         <MetaTags title={"Mihir Paldhikar"}
@@ -79,7 +99,7 @@ const Home: NextPage = () => {
                             loop: true,
                         }}
                     />
-                    <div className={"mt-10 text-center lg:text-left"}>
+                    <div className={"mt-10 text-center lg:text-left w-fit"}>
                         <Button text={"Download Resume"}
                                 onClick={downloadResume}/>
                     </div>
@@ -93,15 +113,13 @@ const Home: NextPage = () => {
                         </Link>
                         <Link href={"https://linkedin.com/in/mihirpaldhikar"}>
                             <div
-                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" +
-                                    " text-4xl shadow-sm pointer"}>
+                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" + " text-4xl shadow-sm pointer"}>
                                 <FaLinkedin className={"text-blue-800"}/>
                             </div>
                         </Link>
                         <Link href={"https://twitter.com/mihirpaldhikar"}>
                             <div
-                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" +
-                                    " text-4xl shadow-sm pointer"}>
+                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" + " text-4xl shadow-sm pointer"}>
                                 <FaTwitter className={"text-blue-500"}/>
                             </div>
                         </Link>
@@ -117,7 +135,8 @@ const Home: NextPage = () => {
             </div>
             <div
                 className={"ml-0 lg:ml-10 w-full lg:w-1/2 bg-surfaceLight dark:bg-surfaceDark shadow-sm rounded-xl mt-32 p-5"}>
-                <h1 className={"text-2xl font-bold text-primaryLight dark:text-primaryDark"}>About
+                <h1 className={"text-2xl font-bold text-primaryLight dark:text-primaryDark"}>👦
+                    About
                     Me</h1>
                 <br/>
                 <p>
@@ -137,8 +156,9 @@ const Home: NextPage = () => {
                 className={"ml-0 lg:ml-10 mt-16 w-full lg:w-1/2 jo"}>
                 <div className={"w-full flex flex-row"}>
                     <div className={"flex-auto"}>
-                        <h1 className={"text-2xl font-bold text-primaryLight dark:text-primaryDark"}>My
-                            Journey <span
+                        <h1 className={"text-2xl font-bold text-primaryLight" + " dark:text-primaryDark"}>🗺️
+                            My
+                            Journey<span
                                 className={"text-purple-400"}></span></h1>
                     </div>
                     <div className={"rounded-xl bg-surfaceLight dark:bg-surfaceDark p-3 pointer"}
@@ -150,6 +170,40 @@ const Home: NextPage = () => {
                     {showJourney ? <JourneyView/> : null}
                 </Fragment>
 
+            </div>
+            <div
+                className={"ml-0 lg:ml-10 mt-16 w-full lg:w-1/2 jo"}>
+                <div className={"w-full flex flex-row"}>
+                    <div className={"flex-auto"}>
+                        <h1 className={"text-2xl font-bold text-primaryLight" + " dark:text-primaryDark"}>🧪
+                            Projects<span
+                                className={"text-purple-400"}></span></h1>
+                    </div>
+                    <div className={"rounded-xl bg-surfaceLight dark:bg-surfaceDark p-3 pointer"}
+                         onClick={toggleProjectView}>{showProjects ? <FaArrowUp/> :
+                        <FaArrowDown/>}</div>
+                </div>
+                <br/>
+                <Fragment>
+                    {showProjects ? <ProjectView/> : null}
+                </Fragment>
+            </div>
+            <div
+                className={"ml-0 lg:ml-10 w-full lg:w-1/2 bg-surfaceLight dark:bg-surfaceDark" + " shadow-sm rounded-xl mt-16 p-5"}>
+                <h1 className={"text-2xl font-bold text-primaryLight dark:text-primaryDark"}>⚡
+                    Skills
+                    Sets</h1>
+                <br/>
+                <div className={"px-5 space-y-10"}>
+                    <Skill name={"Android"} level={"85%"}/>
+                    <Skill name={"Flutter"} level={"95%"}/>
+                    <Skill name={"Web"} level={"77%"}/>
+                    <Skill name={"Kotlin"} level={"75%"}/>
+                    <Skill name={"JavaScript"} level={"89%"}/>
+                    <Skill name={"Node.JS"} level={"91%"}/>
+                    <Skill name={"Ktor"} level={"95%"}/>
+                    <Skill name={"Dart"} level={"75%"}/>
+                </div>
             </div>
         </div>
     </Fragment>);
