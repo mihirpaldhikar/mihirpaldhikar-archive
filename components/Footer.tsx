@@ -12,7 +12,7 @@ function Footer() {
             </div>
             <div className={"text-center mt-5"}>
                 <p className={"text-sm text-outlineLight dark:text-outlineDark"}>Copyright &copy; 2022
-                    Mihir Paldhikar</p>
+                    Mihir Paldhikar.</p>
             </div>
         </div>
     )

@@ -21,3 +21,7 @@ body {
     fill: #9acbff;
 }
 
+.pointer {
+    cursor: pointer;
+}
+

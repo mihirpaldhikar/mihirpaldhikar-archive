@@ -67,7 +67,7 @@ const Home: NextPage = () => {
                 className={"flex flex-col lg:flex-row justify-start lg:space-x-80" + " min-h-full" + " lg:mt-16"}>
                 <div
                     className={"flex-auto content-center mt-16 lg:mt-32 ml-2 lg:ml-16 ml-10" + " mr-5 lg:ml- lg:ml-0"}>
-                    <h4 className={"text-lg"}>Hello, I am</h4>
+                    <h4 className={"text-xl"}>Hello, I am</h4>
                     <h1 className={"text-6xl font-bold mb-3 text-primaryLight" + " dark:text-primaryDark textStroke"}>Mihir
                         Paldhikar<span
                             className={"text-secondaryLight dark:text-secondaryDark"}>.</span></h1>
@@ -87,19 +87,21 @@ const Home: NextPage = () => {
                         className={"flex flex-row space-x-6 mt-10 justify-center lg:justify-start"}>
                         <Link href={"https://github.com/mihirpaldhikar"}>
                             <div
-                                className={"bg-surfaceLight dark:bg-surfaceDark p-4" + " rounded-xl text-4xl shadow-sm"}>
+                                className={"bg-surfaceLight dark:bg-surfaceDark p-4" + " rounded-xl text-4xl shadow-sm pointer"}>
                                 <FaGithub/>
                             </div>
                         </Link>
                         <Link href={"https://linkedin.com/in/mihirpaldhikar"}>
                             <div
-                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl text-4xl shadow-sm"}>
+                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" +
+                                    " text-4xl shadow-sm pointer"}>
                                 <FaLinkedin className={"text-blue-800"}/>
                             </div>
                         </Link>
                         <Link href={"https://twitter.com/mihirpaldhikar"}>
                             <div
-                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl text-4xl shadow-sm"}>
+                                className={"bg-surfaceLight dark:bg-surfaceDark p-4 rounded-xl" +
+                                    " text-4xl shadow-sm pointer"}>
                                 <FaTwitter className={"text-blue-500"}/>
                             </div>
                         </Link>
@@ -139,7 +141,7 @@ const Home: NextPage = () => {
                             Journey <span
                                 className={"text-purple-400"}></span></h1>
                     </div>
-                    <div className={"rounded-xl bg-surfaceLight dark:bg-surfaceDark p-3"}
+                    <div className={"rounded-xl bg-surfaceLight dark:bg-surfaceDark p-3 pointer"}
                          onClick={toggleJourneyView}>{showJourney ? <FaArrowUp/> :
                         <FaArrowDown/>}</div>
                 </div>
