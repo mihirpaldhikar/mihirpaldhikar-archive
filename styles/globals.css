@@ -13,14 +13,6 @@ body {
     writing-mode: vertical-lr;
 }
 
-.logo {
-    fill: #00629f;
-}
-
-.darkLogo {
-    fill: #9acbff;
-}
-
 .pointer {
     cursor: pointer;
 }

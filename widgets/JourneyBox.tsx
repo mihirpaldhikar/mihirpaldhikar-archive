@@ -1,6 +1,6 @@
 function JourneyBox({...props}: any) {
     return (<div
-        className={"flex flex-row mb-5 bg-surfaceLight dark:bg-surfaceDark p-5" + " rounded-xl shadow-sm"}>
+        className={"flex flex-row mb-5 bg-surfaceLight dark:bg-surfaceDark p-5 rounded-xl"}>
         <div
             className={"mr-2 mt-10 flex flex-row items-center justify-center text-center content-center"}>
             <h2 className={"top-bottom text-center text-center mb-10"}>{props.time}</h2>
