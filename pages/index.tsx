@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     }
 
     function downloadResume() {
-        window.open('https://firebasestorage.googleapis.com/v0/b/mihirpaldhikar.appspot.com/o/Documents%2FMihir%20Paldhikar%20Resume.pdf?alt=media&token=d1a2afee-fedb-400b-a352-d4aac6aee5ec', '_newtab');
+        window.open('https://firebasestorage.googleapis.com/v0/b/mihirpaldhikar.appspot.com/o/Documents%2FMihir%20Paldhikar%20Resume.pdf?alt=media&token=fba851fb-3df0-48b1-b26e-c60e25f4fc73', '_newtab');
     }
 
     return (<Fragment>
